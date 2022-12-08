@@ -100,7 +100,7 @@ public class BeaconsAndroidModule extends ReactContextBaseJavaModule implements 
                 builder.setContentTitle(CHANNEL_DESCRIPTION);
                 Class intentClass = getMainActivityClass();
                 Intent intent = new Intent(mApplicationContext, intentClass);
-                PendingIntent pendingIntent = PendingIntent.getActivity(mApplicationContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntent = PendingIntent.getActivity(mApplicationContext, 0, intent, PendingIntent.FLAG_IMMUTABLE);
                 builder.setContentIntent(pendingIntent);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -564,7 +564,7 @@ public class BeaconsAndroidModule extends ReactContextBaseJavaModule implements 
         Class intentClass = getMainActivityClass();
         Intent notificationIntent = new Intent(mApplicationContext, intentClass);
         Integer requestCode = new Random().nextInt(10000);
-        PendingIntent contentIntent = PendingIntent.getActivity(mApplicationContext, requestCode, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent contentIntent = PendingIntent.getActivity(mApplicationContext, requestCode, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
 
         NotificationCompat.Builder notification = new NotificationCompat.Builder(mApplicationContext, NOTIFICATION_CHANNEL_ID)
                 .setSmallIcon(android.R.drawable.ic_dialog_info)

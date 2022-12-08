@@ -1,3 +1,6 @@
+## 1.2.8
+- Update to support Android Sdk Version 31+
+
 ## 1.2.7
 - Update altbeacon library as 2.19
 
